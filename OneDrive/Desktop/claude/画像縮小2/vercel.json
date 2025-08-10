@@ -1,0 +1,15 @@
+{
+  "name": "image-resizer-tool",
+  "builds": [
+    {
+      "src": "image-resize-tool.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/image-resize-tool.html"
+    }
+  ]
+}
