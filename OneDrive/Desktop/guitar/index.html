@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ギターコード検索</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎸 ギターコード検索</h1>
+            <p>コード名を入力してギターの押さえ方を確認しよう</p>
+        </header>
+
+        <main>
+            <!-- モード切替 -->
+            <div class="mode-switcher">
+                <button id="searchModeBtn" class="mode-btn active">コード検索</button>
+                <button id="practiceModeBtn" class="mode-btn">練習モード</button>
+            </div>
+
+            <!-- コード検索モード -->
+            <div id="searchMode" class="mode-content">
+                <div class="search-section">
+                    <input type="text" id="chordInput" placeholder="コード名を入力 (例: C, Am, F)" autocomplete="off">
+                    <button id="searchBtn">検索</button>
+                </div>
+
+                <div id="chordResult" class="chord-display">
+                    <p class="instruction">コード名を入力して検索してください</p>
+                </div>
+
+                <div class="popular-chords">
+                    <h3>よく使われるコード</h3>
+                    <div class="chord-buttons">
+                        <button class="chord-btn" data-chord="C">C</button>
+                        <button class="chord-btn" data-chord="G">G</button>
+                        <button class="chord-btn" data-chord="Am">Am</button>
+                        <button class="chord-btn" data-chord="F">F</button>
+                        <button class="chord-btn" data-chord="Dm">Dm</button>
+                        <button class="chord-btn" data-chord="Em">Em</button>
+                        <button class="chord-btn" data-chord="D">D</button>
+                        <button class="chord-btn" data-chord="A">A</button>
+                        <button class="chord-btn" data-chord="E">E</button>
+                        <button class="chord-btn" data-chord="Bm">Bm</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 練習モード -->
+            <div id="practiceMode" class="mode-content hidden">
+                <!-- 曲の管理 -->
+                <div class="song-management">
+                    <div class="song-controls">
+                        <input type="text" id="songNameInput" placeholder="曲名を入力">
+                        <select id="songSelect">
+                            <option value="">曲を選択</option>
+                        </select>
+                        <button id="saveSongBtn">保存</button>
+                        <button id="deleteSongBtn">削除</button>
+                    </div>
+                    
+                    <div class="chord-progression-input">
+                        <textarea id="chordProgressionInput" placeholder="コード進行を入力してください&#10;例: C G Am F&#10;    Em F C G"></textarea>
+                        <button id="setProgressionBtn">設定</button>
+                    </div>
+                </div>
+
+                <!-- 練習表示エリア -->
+                <div id="practiceDisplay" class="practice-display">
+                    <div class="practice-controls">
+                        <button id="prevChordBtn" disabled>← 前のコード</button>
+                        <span id="chordProgress">-/-</span>
+                        <button id="nextChordBtn" disabled>次のコード →</button>
+                    </div>
+                    
+                    <div id="currentChordDisplay" class="current-chord-display">
+                        <p class="instruction">コード進行を設定してください</p>
+                    </div>
+                    
+                    <div class="chord-sequence">
+                        <h4>コード進行</h4>
+                        <div id="chordSequence" class="chord-sequence-display">
+                            コード進行が設定されていません
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

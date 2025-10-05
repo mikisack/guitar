@@ -1,0 +1,594 @@
+/* 基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダー */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* メインコンテンツ */
+main {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 検索セクション */
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#chordInput {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#chordInput:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#searchBtn {
+    padding: 15px 25px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#searchBtn:hover {
+    background: #5a6fd8;
+}
+
+/* コード表示エリア */
+.chord-display {
+    margin-bottom: 30px;
+    min-height: 300px;
+}
+
+.instruction {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 100px;
+}
+
+.error {
+    text-align: center;
+    color: #e74c3c;
+    background: #fdf2f2;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #fadbd8;
+}
+
+/* コード情報 */
+.chord-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.chord-info h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.difficulty {
+    font-size: 1rem;
+    padding: 5px 15px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: inline-block;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* コードダイアグラム */
+.chord-diagram {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.fretboard {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.string-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+}
+
+.string-name {
+    width: 80px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.frets {
+    display: flex;
+    flex: 1;
+    border-left: 3px solid #333;
+}
+
+.fret {
+    width: 60px;
+    height: 40px;
+    border-right: 2px solid #ccc;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #fff;
+    position: relative;
+}
+
+.fret:first-child {
+    border-left: none;
+}
+
+.fret.open {
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    margin: 2px;
+    width: 56px;
+    height: 36px;
+}
+
+.fret.muted {
+    background: #f44336;
+    color: white;
+    border-radius: 50%;
+    margin: 2px;
+    width: 56px;
+    height: 36px;
+}
+
+.fret.pressed {
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    margin: 2px;
+    width: 56px;
+    height: 36px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* コードのコツ */
+.chord-tips {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.chord-tips h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.chord-tips ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.chord-tips li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.chord-tips li::before {
+    content: "🎵";
+    position: absolute;
+    left: 0;
+}
+
+/* 人気コード */
+.popular-chords {
+    margin-top: 30px;
+}
+
+.popular-chords h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+.chord-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.chord-btn {
+    padding: 15px;
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #333;
+}
+
+.chord-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .search-section {
+        flex-direction: column;
+    }
+    
+    .fret {
+        width: 45px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .fret.open,
+    .fret.muted,
+    .fret.pressed {
+        width: 41px;
+        height: 31px;
+    }
+    
+    .string-name {
+        width: 60px;
+        font-size: 0.8rem;
+    }
+    
+    .chord-buttons {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .fret {
+        width: 35px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .fret.open,
+    .fret.muted,
+    .fret.pressed {
+        width: 31px;
+        height: 26px;
+    }
+    
+    .string-name {
+        width: 50px;
+        font-size: 0.7rem;
+    }
+}
+
+/* モード切替 */
+.mode-switcher {
+    display: flex;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 5px;
+    gap: 5px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #666;
+}
+
+.mode-btn.active {
+    background: #667eea;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mode-btn:hover:not(.active) {
+    background: #e9ecef;
+}
+
+/* モードコンテンツ */
+.mode-content {
+    transition: opacity 0.3s;
+}
+
+.mode-content.hidden {
+    display: none;
+}
+
+/* 練習モード */
+.song-management {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.song-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.song-controls input,
+.song-controls select,
+.song-controls button {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.song-controls button {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.song-controls button:hover {
+    background: #5a6fd8;
+}
+
+.chord-progression-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chord-progression-input textarea {
+    flex: 1;
+    min-height: 80px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: monospace;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.chord-progression-input textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.chord-progression-input button {
+    padding: 15px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.chord-progression-input button:hover {
+    background: #218838;
+}
+
+/* 練習表示エリア */
+.practice-display {
+    margin-bottom: 30px;
+}
+
+.practice-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.practice-controls button {
+    padding: 12px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.practice-controls button:hover:not(:disabled) {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+}
+
+.practice-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#chordProgress {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+    min-width: 80px;
+    text-align: center;
+}
+
+.current-chord-display {
+    margin-bottom: 30px;
+    min-height: 300px;
+}
+
+/* コード進行表示 */
+.chord-sequence {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.chord-sequence h4 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.chord-sequence-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.chord-item {
+    padding: 8px 16px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.chord-item.current-chord {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* レスポンシブ - 練習モード */
+@media (max-width: 768px) {
+    .song-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .chord-progression-input {
+        flex-direction: column;
+    }
+    
+    .practice-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .practice-controls button {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .chord-sequence-display {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mode-switcher {
+        flex-direction: column;
+    }
+    
+    .song-management {
+        padding: 15px;
+    }
+    
+    .practice-controls {
+        padding: 15px;
+    }
+    
+    .chord-item {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
